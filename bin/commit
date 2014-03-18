@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+
+FileUtils.cp_r(Dir['../node-chef/cookbooks/*'],'.')
+
+['Cheffile.lock'].each do |f|
+  file = "../node-chef/#{f}"
+  FileUtils.cp(file, ".") if File.exists?(file)
+end
+

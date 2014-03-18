@@ -2,6 +2,8 @@
 
 require 'fileutils'
 
+FileUtils.mkdir_p('../node-chef')
+
 puts "copying cheffile"
 ['Gemfile','Gemfile.lock','Cheffile'].each do |f|
   file = "./#{f}"
@@ -9,7 +11,7 @@ puts "copying cheffile"
 end
 
 puts "installing"
-`cd ../node-chef && bundle exec librarian-chef install`
+puts `cd ../node-chef && bundle exec librarian-chef install`
 
 puts "copying cookbooks"
 FileUtils.cp_r(Dir['../node-chef/cookbooks/*'],'.')

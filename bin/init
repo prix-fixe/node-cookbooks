@@ -1,9 +1,0 @@
-#!/usr/bin/env ruby
-
-require 'fileutils'
-
-['Gemfile','Gemfile.lock','Cheffile'].each do |f|
-  file = "./#{f}"
-  FileUtils.cp("./#{f}", "../node-chef/.") if File.exists?(file)
-end
-

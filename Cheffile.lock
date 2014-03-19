@@ -3,6 +3,7 @@ SITE
   specs:
     apt (2.3.8)
     build-essential (2.0.0)
+    firewall (0.11.6)
     nodejs (1.3.0)
       apt (>= 0.0.0)
       build-essential (>= 0.0.0)
@@ -11,6 +12,7 @@ SITE
     yum (3.1.4)
 
 DEPENDENCIES
+  firewall (>= 0.11.0)
   nodejs (>= 1.3.0)
   sudo (>= 2.5.0)
 

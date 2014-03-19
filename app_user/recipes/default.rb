@@ -7,6 +7,14 @@
 # All rights reserved - Do Not Redistribute
 #
 
+include_recipe 'firewall'
+
+firewall_rule "http" do
+  port 80
+  action :allow
+  notifies :enable, "firewall[ufw]"
+end
+
 user "app" do
   comment "prix fixe app user"
   home "/home/app"

@@ -20,3 +20,13 @@ directory "/home/app/" do
   action :create
 end
 
+directory "/srv/prixfixe-api" do
+  owner "app"
+  mode "0775"
+end
+
+directory "/var/log/prixfixe-api" do
+  owner "app"
+  mode "0775"
+end
+

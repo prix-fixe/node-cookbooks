@@ -20,10 +20,3 @@ directory "/home/app/" do
   action :create
 end
 
-directory "/home/app/.ssh" do
-  owner "app"
-  mode "0700"
-  group "app"
-  action :create
-end
-

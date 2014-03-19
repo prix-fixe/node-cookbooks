@@ -20,6 +20,20 @@ directory "/home/app/" do
   action :create
 end
 
+directory "/home/app/.ssh" do
+    owner "app"
+    mode "0700"
+    group "app"
+    action :create
+end
+
+cookbook_file "/home/app/.ssh/authorized_keys" do
+    source "authorized_keys.app"
+    owner "app"
+    group "app"
+    mode "0600"
+end
+
 directory "/srv/prixfixe-api" do
   owner "app"
   mode "0775"

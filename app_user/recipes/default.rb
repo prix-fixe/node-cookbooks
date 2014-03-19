@@ -7,6 +7,10 @@
 # All rights reserved - Do Not Redistribute
 #
 
+firewall 'ufw' do
+  action :enable
+end
+
 firewall_rule "http" do
   port 80
   action :allow

@@ -7,22 +7,6 @@
 # All rights reserved - Do Not Redistribute
 #
 
-firewall 'ufw' do
-  action :enable
-end
-
-firewall_rule 'ssh' do
-  port     22
-  action   :allow
-  notifies :enable, 'firewall[ufw]'
-end
-
-firewall_rule "http" do
-  port 80
-  action :allow
-  notifies :enable, "firewall[ufw]"
-end
-
 user "app" do
   comment "prix fixe app user"
   home "/home/app"

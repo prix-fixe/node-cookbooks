@@ -4,20 +4,14 @@ require 'fileutils'
 
 FileUtils.mkdir_p('../node-chef')
 
-puts "copying cheffile"
-['Gemfile','Gemfile.lock','Cheffile'].each do |f|
-  file = "./#{f}"
-  FileUtils.cp("./#{f}", "../node-chef/.") if File.exists?(file)
-end
-
 puts "installing"
-puts `cd ../node-chef && bundle exec librarian-chef install`
+puts `bundle exec librarian-chef install`
+
+new_cookbooks = Dir['./cookbooks/*']
 
 puts "copying cookbooks"
-FileUtils.cp_r(Dir['../node-chef/cookbooks/*'],'.')
+FileUtils.cp_r(new_cookbooks,'.')
 
-puts "copying cheffile lock"
-['Cheffile.lock'].each do |f|
-  file = "../node-chef/#{f}"
-  FileUtils.cp(file, ".") if File.exists?(file)
-end
+puts "remove cookbooks"
+FileUtils.rm_r(new_cookbooks)
+

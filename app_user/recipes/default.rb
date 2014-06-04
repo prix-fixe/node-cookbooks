@@ -44,3 +44,23 @@ directory "/var/log/prixfixe-api" do
   mode "0775"
 end
 
+directory "/srv/prixfixe-web" do
+  owner "app"
+  mode "0775"
+end
+
+directory "/var/log/prixfixe-web" do
+  owner "app"
+  mode "0775"
+end
+
+directory "/srv/prixfixe-hack" do
+  owner "app"
+  mode "0775"
+end
+
+directory "/var/log/prixfixe-hack" do
+  owner "app"
+  mode "0775"
+end
+
